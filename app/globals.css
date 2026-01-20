@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #05070d;
+  --foreground: #e5e7eb;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+@keyframes flameFlicker {
+  0% {
+    transform: translateY(0) rotate(-1deg) scale(1);
+    filter: drop-shadow(0 0 10px rgba(251, 146, 60, 0.26));
+  }
+  50% {
+    transform: translateY(-1px) rotate(1deg) scale(1.03);
+    filter: drop-shadow(0 0 18px rgba(251, 146, 60, 0.38));
+  }
+  100% {
+    transform: translateY(0) rotate(-1deg) scale(1);
+    filter: drop-shadow(0 0 10px rgba(251, 146, 60, 0.26));
+  }
+}
+
+@keyframes flamePop {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.2;
+  }
+  60% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes flameBurst {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  15% {
+    transform: scale(1.22) rotate(-8deg);
+  }
+  30% {
+    transform: scale(1.18) rotate(10deg) translateY(-1px);
+  }
+  45% {
+    transform: scale(1.25) rotate(-12deg) translateY(-2px);
+  }
+  60% {
+    transform: scale(1.18) rotate(8deg);
+  }
+  75% {
+    transform: scale(1.12) rotate(-6deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-flame {
+    animation: flameFlicker 1.25s ease-in-out infinite;
+  }
+  .animate-flame-pop {
+    animation: flamePop 280ms ease-out both;
+  }
+  .animate-flame-burst {
+    animation: flameBurst 420ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+    filter: drop-shadow(0 0 26px rgba(251, 146, 60, 0.55));
+  }
+}
