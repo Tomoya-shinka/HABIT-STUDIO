@@ -1,0 +1,18 @@
+import type { MetadataRoute } from 'next'
+
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: 'Habit Studio',
+    short_name: 'Habit Studio',
+    description: 'A clean, modern habit tracker.',
+    start_url: '/',
+    display: 'standalone',
+    background_color: '#05070d',
+    theme_color: '#05070d',
+    icons: [
+      { src: '/icon', sizes: 'any', type: 'image/svg+xml' },
+      { src: '/apple-icon', sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
+    ],
+  }
+}
+

@@ -4,6 +4,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Habit Studio',
   description: 'A clean, modern habit tracker.',
+  manifest: '/manifest.webmanifest',
 }
 
 export default function RootLayout({
